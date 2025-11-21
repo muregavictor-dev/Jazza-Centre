@@ -1,154 +1,154 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Import Bootstrap */
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Custom CSS Variables - Design System */
+:root {
+  --background: #ffffff;
+  --foreground: hsl(278, 65%, 15%);
+  
+  --card: #ffffff;
+  --card-foreground: hsl(278, 65%, 15%);
+  
+  --popover: #ffffff;
+  --popover-foreground: hsl(278, 65%, 15%);
+  
+  /* Deep Galactic Purple */
+  --primary: hsl(278, 65%, 15%);
+  --primary-foreground: #ffffff;
+  
+  /* Off-white for clean sections */
+  --secondary: hsl(210, 17%, 98%);
+  --secondary-foreground: hsl(278, 65%, 15%);
+  
+  --muted: hsl(210, 17%, 98%);
+  --muted-foreground: hsl(210, 9%, 46%);
+  
+  /* Electric Pink/Magenta for CTAs */
+  --accent: hsl(333, 85%, 45%);
+  --accent-foreground: #ffffff;
+  
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: #ffffff;
+  
+  --border: hsl(220, 13%, 91%);
+  --input: hsl(220, 13%, 91%);
+  --ring: hsl(333, 85%, 45%);
+  
+  --radius: 1rem;
+  
+  /* Custom Jazza colors */
+  --galactic-purple: hsl(278, 65%, 15%);
+  --electric-pink: hsl(333, 85%, 45%);
+  --slate-gray: hsl(210, 9%, 46%);
+  --glass-bg: #ffffff;
+  --glass-border: hsl(0, 0%, 90%);
+  
+  /* Glassmorphism */
+  --glass-opacity: 0.7;
+  --glass-blur: 12px;
+}
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 278 65% 15%;
+.dark {
+  --background: hsl(278, 65%, 8%);
+  --foreground: hsl(0, 0%, 98%);
+  
+  --card: hsl(278, 50%, 12%);
+  --card-foreground: hsl(0, 0%, 98%);
+  
+  --popover: hsl(278, 50%, 12%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  
+  --primary: hsl(0, 0%, 98%);
+  --primary-foreground: hsl(278, 65%, 15%);
+  
+  --secondary: hsl(278, 30%, 20%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  
+  --muted: hsl(278, 30%, 20%);
+  --muted-foreground: hsl(210, 20%, 70%);
+  
+  --accent: hsl(333, 85%, 45%);
+  --accent-foreground: #ffffff;
+  
+  --destructive: hsl(0, 62.8%, 50%);
+  --destructive-foreground: #ffffff;
+  
+  --border: hsl(278, 30%, 25%);
+  --input: hsl(278, 30%, 25%);
+  --ring: hsl(333, 85%, 45%);
+  
+  --glass-bg: hsl(278, 40%, 15%);
+  --glass-border: hsl(278, 40%, 25%);
+}
 
-    --card: 0 0% 100%;
-    --card-foreground: 278 65% 15%;
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  border-color: var(--border);
+}
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 278 65% 15%;
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
-    /* Deep Galactic Purple */
-    --primary: 278 65% 15%;
-    --primary-foreground: 0 0% 100%;
+/* Glassmorphism utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
 
-    /* Off-white for clean sections */
-    --secondary: 210 17% 98%;
-    --secondary-foreground: 278 65% 15%;
+.glass-white {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
 
-    --muted: 210 17% 98%;
-    --muted-foreground: 210 9% 46%;
+/* Glow effects */
+.glow-pink {
+  box-shadow: 0 0 20px rgba(217, 3, 104, 0.3);
+}
 
-    /* Electric Pink/Magenta for CTAs */
-    --accent: 333 85% 45%;
-    --accent-foreground: 0 0% 100%;
+.glow-pink-strong {
+  box-shadow: 0 0 30px rgba(217, 3, 104, 0.6);
+}
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+/* Gradient overlays */
+.gradient-purple-overlay {
+  background: linear-gradient(135deg, rgba(42, 14, 69, 0.9) 0%, rgba(42, 14, 69, 0.3) 100%);
+}
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 333 85% 45%;
-
-    --radius: 1rem;
-    
-    /* Custom Jazza colors */
-    --galactic-purple: 278 65% 15%;
-    --electric-pink: 333 85% 45%;
-    --slate-gray: 210 9% 46%;
-    --glass-bg: 0 0% 100%;
-    --glass-border: 0 0% 90%;
-    
-    /* Glassmorphism */
-    --glass-opacity: 0.7;
-    --glass-blur: 12px;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-
-  .dark {
-    --background: 278 65% 8%;
-    --foreground: 0 0% 98%;
-
-    --card: 278 50% 12%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 278 50% 12%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%;
-    --primary-foreground: 278 65% 15%;
-
-    --secondary: 278 30% 20%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 278 30% 20%;
-    --muted-foreground: 210 20% 70%;
-
-    --accent: 333 85% 45%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 278 30% 25%;
-    --input: 278 30% 25%;
-    --ring: 333 85% 45%;
-    
-    --glass-bg: 278 40% 15%;
-    --glass-border: 278 40% 25%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+.animate-fade-up {
+  animation: fadeInUp 0.8s ease-out;
+}
 
-  body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
   }
 }
 
-@layer utilities {
-  /* Glassmorphism utilities */
-  .glass {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-  
-  .glass-white {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-  
-  /* Glow effects */
-  .glow-pink {
-    box-shadow: 0 0 20px rgba(217, 3, 104, 0.3);
-  }
-  
-  .glow-pink-strong {
-    box-shadow: 0 0 30px rgba(217, 3, 104, 0.6);
-  }
-  
-  /* Gradient overlays */
-  .gradient-purple-overlay {
-    background: linear-gradient(135deg, rgba(42, 14, 69, 0.9) 0%, rgba(42, 14, 69, 0.3) 100%);
-  }
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
